@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signIn</title>
+    <link rel="wesite icon" type="png" href="logo.jpg">
+
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+    <div class="signin">
+
+        <div class="form">
+    <form>
+        <label for="fullname"> FullName</label>
+        <input type="text"  id="fullname" />
+
+        <label for="mobile">Mobile number</label>
+        <input type="tel"  id="mobile" placeholder="+91**********"> <button id="send" onclick="fillOTP()"> send </button>
+
+         <label for="password">OTP</label>
+        <input type="password" id="password"> <button id="show-password"> Show</button>
+<br>
+
+<a href="homepage1.html" id="navigate"><button type="button" onclick="notify()"> create account </button></a>
+         <h4> OR have account </h4>
+<a href="loginpage.html"><button type="button" > LogIn </button></a>
+
+
+    </div>
+    </div>
+    </form>
+
+
+
+<script>
+
+    function notify(){
+
+        const Username=document.getElementById("fullname");
+        const Mobile=document.getElementById('mobile');
+        const link=document.getElementById("navigate");
+        const password=document.getElementById("password");
+
+        if(Username.value==="")
+    {
+    Username.style.border="2px solid red";
+    link.setAttribute("href","#");
+
+}
+else if(Mobile.value===""){
+
+    Mobile.style.border="2px solid red";
+    link.setAttribute("href","#");
+}
+
+  else{
+
+
+    link.setAttribute("href","homepage1.html");
+
+  }     
+
+}
+
+
+
+
+
+function fillOTP(){
+
+    var Otp=document.getElementById("password");
+    var random=Math.floor(Math.random()*10000).toString().padStart(4,"0");
+     Otp.value=random;
+   console.log(random);
+  
+
+
+}
+
+const passwordInput = document.getElementById('password');
+const showPasswordButton = document.getElementById('show-password');
+
+showPasswordButton.addEventListener('click', function() {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    showPasswordButton.textContent = 'Hide Password';
+  } else {
+    passwordInput.type = 'password';
+    showPasswordButton.textContent = 'Show Password';
+  }
+});
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
